@@ -22,7 +22,7 @@ function TodoList({$target, initialState, ondelete, ontoggle}) {
             $list.innerHTML = '';
             const $ul = document.createElement('ul');
             this.state.forEach(item => {
-                const todoitem = new todoItem({
+                new todoItem({
                      $target: $ul, 
                      initialState: item, 
                      ondelete, 
