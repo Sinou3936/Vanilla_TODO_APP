@@ -11,7 +11,7 @@ function TodoItem({ $target, initialState, ondelete, ontoggle }) {
 
     this.render = () => {
         const $li = document.createElement('li');
-
+        $li.style.textDecoration = this.state.checked ? 'line-through' : 'none';
         $li.addEventListener("click", (e) => {
           if (e.target.classList.contains("delete-btn")) {
             const id = parseInt(e.target.dataset.id);
@@ -24,7 +24,10 @@ function TodoItem({ $target, initialState, ondelete, ontoggle }) {
         });        
 
         $li.innerHTML = `
-            <input class="toggle-btn" type="checkbox" ${this.state.checked ? "checked" : ""} data-id="${this.state.id}"/> 
+            <input class="toggle-btn" 
+                    type="checkbox" ${this.state.checked ? "checked" : ""} 
+                    data-id="${this.state.id}"
+                    /> 
             <span>${this.state.id} - ${this.state.text}</span>
             <button class="delete-btn" data-id="${this.state.id}">X</button>
         `;
